@@ -1,157 +1,47 @@
-# Evidence Flow
+# Evidence Architecture
 
 ## Purpose
 
-The Evidence Flow describes how governance evidence moves through the Evidence Convergence Framework (ECF) operating lifecycle.
+The Evidence Architecture defines how governance evidence is structured, identified, validated, mapped, reused, monitored, and governed within the Evidence Convergence Framework (ECF).
 
-While the **Evidence Architecture** defines how evidence is structured, governed, validated, mapped, and reused, the Evidence Flow defines the operational movement of evidence from an identified governance requirement through collection, validation, assessment, reuse, gap identification, risk evaluation, decision-making, monitoring, revalidation, change management, and eventual retirement.
+ECF is an operating model for AI vendor governance. It is not a competing governance framework and does not replace established frameworks, standards, regulations, or organizational governance processes.
 
-The flow is designed around the ECF operating principle:
+The purpose of the Evidence Architecture is to establish a common evidence model that allows an organization to:
 
-> **Assessment → Evidence → Mapping → Reuse → Gap Identification → Risk → Decision**
+* Identify what evidence is required.
+* Collect evidence systematically.
+* Govern evidence as an enterprise asset.
+* Validate evidence before relying upon it.
+* Map evidence to applicable governance requirements.
+* Reuse evidence where appropriate.
+* Preserve framework-specific requirements and interpretation.
+* Identify evidence gaps explicitly.
+* Maintain traceability from requirements to governance decisions.
+* Monitor evidence validity and change.
+* Reduce unnecessary duplication without weakening assurance.
 
-Evidence is treated as a governed enterprise asset rather than as a disposable attachment to an individual assessment.
+The architecture is based on the following principle:
 
-The flow therefore separates:
-
-* The **requirement** that must be evaluated
-* The **evidence requirement** needed to evaluate that requirement
-* The **evidence asset** supplied by an organization or vendor
-* The **validation** of that evidence
-* The **mapping** between evidence and applicable requirements
-* The **assessment interpretation** performed by qualified personnel
-* The resulting **finding or gap**
-* The associated **risk**
-* The resulting **remediation or governance decision**
-
-ECF does not establish that a single evidence asset automatically satisfies multiple frameworks. Reuse is conditional on evidence scope, applicability, validity, currency, provenance, quality, and the interpretation required by the receiving assessment.
+> **Governance evidence should be designed once, governed as an enterprise asset, mapped across applicable requirements and frameworks, reused wherever appropriate, and supplemented where framework-specific evidence or interpretation is still required.**
 
 ---
 
-## 1. Evidence Flow Principles
+# 1. ECF Evidence Architecture Model
 
-The Evidence Flow is governed by the following principles.
-
-### 1.1 Evidence follows requirements
-
-Evidence should be collected because a defined governance requirement, control objective, assessment criterion, or decision requires it.
-
-Evidence collection should not begin with an undifferentiated request for every possible document.
-
-### 1.2 Evidence is an enterprise asset
-
-Evidence should be registered, classified, governed, and maintained independently from any single assessment where practical.
-
-An evidence asset may subsequently support multiple assessments.
-
-### 1.3 Collection is not assessment
-
-Collecting a document does not establish that a requirement has been satisfied.
-
-The flow separates:
-
-**Evidence Collection → Evidence Validation → Evidence Mapping → Assessment Interpretation → Finding / Gap**
-
-### 1.4 Validation is not compliance determination
-
-Evidence validation establishes whether an evidence asset is sufficiently authentic, attributable, relevant, current, complete, and otherwise suitable for its intended use.
-
-Validation does not by itself determine compliance or conformity.
-
-### 1.5 Mapping is not equivalence
-
-An evidence-to-requirement mapping indicates that an evidence asset provides relevant support for evaluating a requirement.
-
-It does not establish that:
-
-* Two framework requirements are equivalent
-* One evidence asset fully satisfies two requirements
-* A framework obligation has been discharged
-* A regulatory obligation has been met
-
-Assessment interpretation remains necessary.
-
-### 1.6 Reuse is conditional
-
-Evidence may be reused when its characteristics remain appropriate for the receiving requirement.
-
-Reuse eligibility should consider factors such as:
-
-* Scope
-* Applicability
-* Evidence type
-* Provenance
-* Currency
-* Validity period
-* Control or process coverage
-* System or product coverage
-* Organizational coverage
-* Geographic or regulatory context
-* Framework-specific interpretation
-* Material changes since the evidence was produced
-* Known limitations or exceptions
-
-### 1.7 Framework-specific gaps remain visible
-
-ECF seeks evidence convergence, not requirement convergence.
-
-Where an evidence asset cannot adequately support a framework-specific requirement, the gap remains explicit.
-
-### 1.8 Evidence has a lifecycle
-
-Evidence should not remain permanently reusable simply because it was once accepted.
-
-Evidence may become:
-
-* Stale
-* Superseded
-* Invalid
-* Out of scope
-* Incomplete
-* Inapplicable
-* Restricted
-* Retired
-
-### 1.9 Evidence changes can trigger downstream review
-
-A material change to an evidence asset, its source, its scope, or the underlying control environment may affect assessments that previously relied upon it.
-
-Evidence change management therefore requires downstream impact analysis.
-
-### 1.10 Decisions remain accountable
-
-ECF supports governance decisions; it does not make governance accountability disappear.
-
-The final decision remains attributable to the appropriate risk owner, control owner, governance body, or delegated decision-maker.
-
----
-
-# 2. End-to-End Evidence Lifecycle
-
-The ECF evidence lifecycle can be represented as:
+The core ECF evidence architecture is:
 
 ```mermaid
 flowchart TD
-    A[Governance Requirement Identified]
-    B[Evidence Requirement Defined]
-    C[Evidence Request]
-    D[Evidence Collection]
-    E[Evidence Intake]
-    F[Evidence Registration]
-    G[Evidence Validation]
-    H[Evidence Classification]
-    I[Evidence Mapping]
-    J[Assessment Interpretation]
-    K{Evidence Sufficient for Requirement?}
-    L[Finding or Gap]
-    M[Risk Evaluation]
-    N[Remediation]
-    O[Governance Decision]
-    P[Evidence Monitoring]
-    Q[Revalidation Trigger]
-    R[Evidence Change Management]
-    S[Evidence Expiration]
-    T[Evidence Retirement]
+    A[Governance Requirement]
+    B[Evidence Requirement]
+    C[Evidence Asset]
+    D[Evidence Validation]
+    E[Evidence Mapping]
+    F[Assessment Interpretation]
+    G[Finding / Gap]
+    H[Risk]
+    I[Remediation]
+    J[Governance Decision]
 
     A --> B
     B --> C
@@ -161,217 +51,347 @@ flowchart TD
     F --> G
     G --> H
     H --> I
+    H --> J
     I --> J
-    J --> K
-    K -- Yes --> O
-    K -- No --> L
-    L --> M
-    M --> N
-    M --> O
-    O --> P
-    P --> Q
-    Q --> G
-    P --> R
-    R --> Q
-    P --> S
-    S --> T
 ```
 
-The lifecycle is not necessarily strictly linear.
+This model deliberately separates the evidence lifecycle from the assessment and decision lifecycle.
 
-An evidence asset may:
-
-* Return to validation
-* Be remapped
-* Support a new assessment
-* Trigger reassessment after a material change
-* Require supplemental evidence
-* Be superseded by a newer version
-* Remain valid while a separate framework-specific gap is addressed
-
-The lifecycle should therefore be understood as a controlled flow rather than a one-time sequence.
+An evidence asset is an input into governance assessment. It is not itself a compliance conclusion, risk rating, or governance decision.
 
 ---
 
-# 3. Evidence Requirement Identification
+# 2. Core Architecture Concepts
 
-The flow begins with a governance requirement.
+The ECF evidence model contains the following core concepts:
+
+1. Governance Requirement
+2. Evidence Requirement
+3. Evidence Asset
+4. Evidence Metadata
+5. Evidence Identity
+6. Evidence Scope
+7. Evidence Provenance
+8. Evidence Currency
+9. Evidence Validation
+10. Evidence Lifecycle
+11. Evidence Mapping
+12. Mapping Strength
+13. Mapping Rationale
+14. Evidence Reuse
+15. Evidence Reuse Eligibility
+16. Evidence Convergence
+17. Framework-Specific Gaps
+18. Evidence Lineage
+19. Evidence Change Management
+20. Evidence Ownership
+21. Evidence Confidentiality
+22. Evidence Retention
+23. Evidence Quality
+24. Assessment Relationships
+25. Cross-Framework Relationships
+26. GRC Integration
+27. Architectural Controls
+28. Traceability
+29. Separation of Evidence, Interpretation, and Decision
+
+These concepts collectively establish the evidence architecture used by ECF.
+
+---
+
+# 3. Governance Requirement
+
+A **Governance Requirement** is the obligation, expectation, control objective, assessment criterion, or governance condition that must be evaluated.
 
 A governance requirement may originate from:
 
-* An internal policy
-* A risk assessment criterion
-* A control objective
-* A contractual obligation
-* A customer requirement
-* A regulatory obligation
-* A recognized framework
-* An internal governance standard
-* A third-party risk requirement
-* An AI governance process
-* A management decision requiring evidence
+* Internal policies
+* Organizational standards
+* Risk management requirements
+* Contracts
+* Customer requirements
+* Regulatory obligations
+* Industry standards
+* Frameworks
+* AI governance requirements
+* Third-party risk requirements
+* Internal audit criteria
+* Management-defined requirements
 
-The requirement should be translated into an **Evidence Requirement** before evidence is requested.
+Examples of governance contexts that may contribute requirements include:
 
-An Evidence Requirement defines what evidence is needed to support an assessment.
+* NIST AI RMF
+* ISO/IEC 42001
+* EU AI Act
+* Organizational AI governance policies
+* Third-party risk management standards
 
-### Example
+ECF does not assume that requirements from these sources are equivalent.
 
-A governance requirement may require an organization to evaluate whether an AI vendor maintains an appropriate mechanism for managing security incidents involving the AI service.
-
-The corresponding Evidence Requirement might identify:
-
-| Attribute                | Example                                                        |
-| ------------------------ | -------------------------------------------------------------- |
-| Requirement              | Incident management capability                                 |
-| Evidence needed          | Incident response policy and relevant procedural documentation |
-| Evidence characteristics | Current, approved, applicable to the assessed service          |
-| Expected scope           | AI service and supporting operational environment              |
-| Evidence owner           | Vendor security or compliance function                         |
-| Assessment use           | Evaluate incident management governance                        |
-| Potential mappings       | Multiple applicable security or AI governance requirements     |
-
-The evidence requirement should be specific enough to guide collection without prematurely assuming that a particular document is the only acceptable evidence type.
+Each requirement retains its source and context.
 
 ---
 
-# 4. Evidence Request
+# 4. Evidence Requirement
 
-Once an Evidence Requirement has been defined, the appropriate evidence source is identified and a request is issued.
+An **Evidence Requirement** defines the evidence needed to evaluate a governance requirement.
 
-The request should communicate:
+It answers:
 
-* Requirement being evaluated
-* Evidence requested
-* Expected scope
-* Applicable time period
-* Required evidence characteristics
-* Submission method
-* Confidentiality expectations
-* Requested response date
-* Contact or evidence owner
-* Any accepted alternatives
+> **What evidence would allow an assessor to evaluate this requirement?**
 
-Evidence requests should avoid unnecessary duplication.
+An Evidence Requirement should define characteristics such as:
 
-Where an existing evidence asset is already registered and potentially reusable, the process should first determine whether that asset can support the new requirement.
+| Attribute                 | Description                                           |
+| ------------------------- | ----------------------------------------------------- |
+| Evidence Requirement ID   | Unique identifier                                     |
+| Governance Requirement ID | Parent requirement                                    |
+| Evidence Type             | Expected category of evidence                         |
+| Evidence Description      | What the evidence should demonstrate                  |
+| Required Scope            | Organization, product, service, system, process, etc. |
+| Currency Requirement      | How current the evidence should be                    |
+| Validation Expectations   | Required validation characteristics                   |
+| Confidentiality           | Expected handling classification                      |
+| Owner                     | Responsible evidence or requirement owner             |
+| Framework Context         | Applicable framework or governance context            |
 
-This creates the first opportunity for evidence reuse.
+The Evidence Requirement should not unnecessarily prescribe a single document when multiple evidence types could reasonably demonstrate the requirement.
 
 ---
 
-# 5. Evidence Collection
+# 5. Evidence Asset
 
-Evidence collection is the acquisition of evidence from an authorized source.
+An **Evidence Asset** is a specific, identifiable piece of evidence that has been collected and governed within the ECF evidence model.
 
-Potential evidence sources include:
+Examples include:
 
-* AI vendors
-* Internal control owners
-* Product owners
-* Security teams
-* Legal or compliance teams
-* Internal audit
-* External assurance providers
-* Independent assessors
-* Governance repositories
-* Contract repositories
-* System-generated records
-* Configuration repositories
-* Monitoring systems
-
-Evidence may take many forms, including:
-
-* Policies
+* Approved policies
 * Procedures
-* Standards
-* Reports
+* Audit reports
 * Certifications
 * Attestations
-* Audit reports
-* Test results
-* Configuration evidence
-* System records
-* Meeting records
 * Risk assessments
-* Training records
-* Contractual documents
+* Control testing results
 * Technical documentation
+* System configurations
+* Security reports
+* Training records
+* Contractual provisions
+* Operational records
+* Management statements
+* Independent assurance reports
 
-The ECF model does not assume that a particular evidence type is universally sufficient.
+An Evidence Asset should have a persistent identity independent of an individual assessment where practical.
 
-Evidence suitability depends on the requirement and assessment context.
-
----
-
-# 6. Evidence Intake
-
-Evidence intake is the controlled entry of evidence into the governance process.
-
-At intake, the evidence should be checked for basic usability before it becomes part of the governed evidence inventory.
-
-Typical intake activities include:
-
-1. Confirming the evidence source.
-2. Confirming the submission relates to the requested requirement.
-3. Checking file integrity or accessibility.
-4. Recording the submission date.
-5. Recording the evidence owner or source.
-6. Identifying confidentiality restrictions.
-7. Identifying obvious scope limitations.
-8. Detecting duplicate or previously registered evidence.
-9. Assigning an initial evidence identifier where appropriate.
-
-Intake does not constitute evidence validation.
+This allows the same asset to participate in multiple applicable assessments.
 
 ---
 
-# 7. Evidence Registration
+# 6. Evidence Identity
 
-Once accepted into the evidence process, the evidence asset should be registered in the Evidence Register.
+Every governed Evidence Asset should have a unique identity.
 
-Registration creates the persistent identity required to govern the evidence throughout its lifecycle.
+A conceptual Evidence ID may follow a structure such as:
 
-At minimum, registration should establish:
+```text
+EVD-000001
+EVD-000002
+EVD-000003
+```
 
-* Evidence ID
-* Evidence title
-* Evidence type
+The exact identifier format is an implementation decision.
+
+The important architectural requirement is that an evidence asset can be uniquely distinguished from:
+
+* Other evidence
+* Previous versions
+* Superseded evidence
+* Assessment records
+* Mapping records
+* Findings
+* Risk records
+
+Evidence identity should persist throughout the evidence lifecycle.
+
+---
+
+# 7. Evidence Metadata
+
+Evidence metadata provides the contextual information required to govern and interpret an evidence asset.
+
+Typical metadata includes:
+
+| Metadata             | Purpose                                      |
+| -------------------- | -------------------------------------------- |
+| Evidence ID          | Persistent identity                          |
+| Evidence Title       | Human-readable description                   |
+| Evidence Type        | Classification                               |
+| Source               | Origin of evidence                           |
+| Evidence Owner       | Accountability                               |
+| Collection Date      | Establishes acquisition timing               |
+| Effective Date       | Establishes applicability                    |
+| Review Date          | Indicates next review                        |
+| Expiration Date      | Indicates validity boundary where applicable |
+| Version              | Distinguishes revisions                      |
+| Scope                | Defines coverage                             |
+| Applicability        | Defines intended environment                 |
+| Provenance           | Establishes origin                           |
+| Confidentiality      | Controls access                              |
+| Validation Status    | Indicates suitability                        |
+| Evidence Status      | Lifecycle state                              |
+| Related Requirements | Establishes relationships                    |
+| Related Assessments  | Establishes usage                            |
+| Limitations          | Documents constraints                        |
+
+Metadata is part of the evidence governance model.
+
+A document without sufficient metadata may be difficult to validate, reuse, or interpret correctly.
+
+---
+
+# 8. Evidence Scope
+
+Evidence scope defines what the evidence actually covers.
+
+Scope may include:
+
+* Enterprise
+* Business unit
+* Product
+* AI system
+* Application
+* Vendor service
+* Infrastructure
+* Process
+* Geographic region
+* Legal entity
+* Data environment
+* Specific control population
+* Specific assessment period
+
+Scope is critical to evidence reuse.
+
+For example, an enterprise-wide information security policy may provide useful evidence for a vendor assessment, but it does not automatically establish that a specific AI service implements every requirement addressed by the policy.
+
+Therefore:
+
+> **Evidence scope must be aligned with assessment scope before evidence is reused.**
+
+---
+
+# 9. Evidence Provenance
+
+Evidence provenance establishes where evidence came from and how it entered the evidence environment.
+
+Provenance may include:
+
+* Source organization
+* Source system
 * Evidence owner
-* Evidence source
+* Submission method
 * Collection date
-* Effective date
-* Expiration or review date where applicable
-* Scope
-* Applicability
-* Provenance
-* Confidentiality classification
-* Current status
-* Version
-* Related requirements
-* Validation status
+* Collector
+* Certification or attestation source
+* Independent assurance provider
+* Chain of custody where relevant
+* Version history
+* Related evidence
 
-Evidence registration enables the evidence asset to exist independently of a particular assessment.
+Provenance supports:
+
+* Authenticity
+* Accountability
+* Auditability
+* Evidence quality
+* Change management
+* Investigation
+
+Evidence without sufficient provenance may have reduced reuse eligibility.
 
 ---
 
-# 8. Evidence Validation
+# 10. Evidence Currency
 
-Evidence validation determines whether an evidence asset is suitable for its intended assessment use.
+Evidence currency represents whether evidence remains sufficiently current for its intended use.
 
-Validation should evaluate characteristics such as:
+Currency may depend on:
 
-| Validation Dimension | Question                                                                                |
-| -------------------- | --------------------------------------------------------------------------------------- |
-| Authenticity         | Can the source and origin of the evidence be established?                               |
-| Integrity            | Is the evidence sufficiently intact and reliable for its intended use?                  |
-| Relevance            | Does it address the requirement being evaluated?                                        |
-| Scope                | Does the evidence cover the relevant organization, system, service, process, or period? |
-| Currency             | Is the evidence sufficiently current?                                                   |
-| Completeness         | Is enough information available to support the intended assessment?                     |
-| Provenance           | Can the evidence's origin and chain of custody be understood?                           |
-| Applicability        | Does the evidence apply to the assessed environment?                                    |
-| Limitations          | Are exclusions, assumptions, or constraints documented?                                 |
+* Evidence age
+* Defined review period
+* Certification validity
+* Policy version
+* Control changes
+* System changes
+* Vendor changes
+* Regulatory changes
+* Assessment requirements
+* Risk level
+
+Currency should not be interpreted as a universal fixed number of days.
+
+Different evidence types may require different review frequencies.
+
+For example:
+
+* A policy may have an annual review cycle.
+* A penetration test may have a defined assessment period.
+* A certification may have an explicit validity period.
+* A system configuration may require event-driven validation.
+
+---
+
+# 11. Evidence Validation
+
+Evidence validation determines whether an evidence asset is suitable for its intended governance use.
+
+Validation may evaluate:
+
+1. Authenticity
+2. Integrity
+3. Relevance
+4. Scope
+5. Currency
+6. Completeness
+7. Provenance
+8. Applicability
+9. Limitations
+
+A conceptual validation model is:
+
+```mermaid
+flowchart TD
+    A[Evidence Asset]
+    B[Authenticity]
+    C[Integrity]
+    D[Relevance]
+    E[Scope]
+    F[Currency]
+    G[Completeness]
+    H[Provenance]
+    I[Applicability]
+    J[Limitations]
+    K[Validation Outcome]
+
+    A --> B
+    A --> C
+    A --> D
+    A --> E
+    A --> F
+    A --> G
+    A --> H
+    A --> I
+    A --> J
+
+    B --> K
+    C --> K
+    D --> K
+    E --> K
+    F --> K
+    G --> K
+    H --> K
+    I --> K
+    J --> K
+```
 
 Validation outcomes may include:
 
@@ -383,288 +403,611 @@ Validation outcomes may include:
 * Expired
 * Superseded
 
-Validation should be documented separately from the ultimate compliance or risk conclusion.
+Validation does **not** determine compliance.
 
 ---
 
-# 9. Evidence Classification
+# 12. Evidence Lifecycle
 
-Validated evidence should be classified so that it can be managed and reused appropriately.
+Evidence should be managed throughout its lifecycle rather than only at the time of collection.
 
-Classification may include:
+A conceptual lifecycle is:
 
-### Evidence Type
+```mermaid
+stateDiagram-v2
+    [*] --> Requested
+    Requested --> Collected
+    Collected --> Registered
+    Registered --> Under_Validation
+    Under_Validation --> Validated
+    Under_Validation --> Insufficient
+    Validated --> Active
+    Active --> Under_Review
+    Under_Review --> Active
+    Active --> Superseded
+    Active --> Expired
+    Active --> Retired
+    Superseded --> Retired
+    Expired --> Retired
+    Insufficient --> Retired
+    Retired --> [*]
+```
 
-Examples:
+The lifecycle should support controlled transitions rather than informal document handling.
 
-* Policy
-* Procedure
-* Standard
-* Technical configuration
-* Independent assurance
-* Internal assessment
-* Risk assessment
-* Contractual evidence
-* Operational record
-* Training record
+---
 
-### Evidence Scope
+# 13. Evidence Status
 
-Examples:
+Evidence status provides a current lifecycle state.
 
-* Enterprise-wide
-* Business unit
-* Product
-* AI system
-* Application
-* Vendor service
-* Infrastructure
-* Process
-* Geographic region
+A conceptual status model includes:
 
-### Evidence Status
+| Status                     | Meaning                                               |
+| -------------------------- | ----------------------------------------------------- |
+| Requested                  | Evidence has been requested but not received          |
+| Collected                  | Evidence has been received                            |
+| Registered                 | Evidence has been entered into the evidence inventory |
+| Under Validation           | Evidence is undergoing validation                     |
+| Validated                  | Evidence is suitable for intended use                 |
+| Validated with Limitations | Evidence is usable subject to documented constraints  |
+| Insufficient               | Evidence does not adequately support intended use     |
+| Expired                    | Evidence is no longer considered current              |
+| Superseded                 | A newer evidence version has replaced it              |
+| Retired                    | Evidence is no longer actively used                   |
 
-Examples:
+The exact implementation status values may be adapted to organizational workflows.
 
-* Active
-* Pending review
-* Restricted
-* Superseded
-* Expired
-* Retired
+---
 
-### Evidence Sensitivity
+# 14. Evidence Mapping
 
-Examples:
+Evidence Mapping establishes a relationship between an Evidence Asset and a Governance Requirement.
+
+A mapping should explain:
+
+> **Why is this evidence relevant to this requirement?**
+
+A mapping should not simply state that two records are related.
+
+A conceptual mapping structure includes:
+
+| Attribute         | Purpose                                      |
+| ----------------- | -------------------------------------------- |
+| Mapping ID        | Unique mapping identity                      |
+| Evidence ID       | Evidence being mapped                        |
+| Requirement ID    | Requirement being supported                  |
+| Mapping Strength  | Degree of evidentiary support                |
+| Mapping Rationale | Explanation of relationship                  |
+| Scope Alignment   | Comparison of evidence and requirement scope |
+| Limitations       | Known deficiencies                           |
+| Framework Context | Assessment context                           |
+| Mapping Owner     | Accountability                               |
+| Review Date       | Mapping currency                             |
+| Mapping Status    | Active or inactive                           |
+
+---
+
+# 15. Mapping Strength
+
+ECF uses mapping strength to communicate the nature of the evidence relationship.
+
+A conceptual model is:
+
+### Strong
+
+The evidence directly supports evaluation of the requirement within the relevant scope.
+
+### Moderate
+
+The evidence provides meaningful support but requires additional interpretation or corroboration.
+
+### Weak
+
+The evidence is relevant but insufficient to support the requirement independently.
+
+### Not Applicable
+
+The evidence does not meaningfully support the requirement.
+
+Mapping strength is **not**:
+
+* A compliance score
+* A risk score
+* A maturity score
+* A probability
+* A statement of regulatory compliance
+
+It describes the evidentiary relationship.
+
+---
+
+# 16. Mapping Rationale
+
+Every meaningful cross-requirement mapping should have a rationale.
+
+A mapping rationale should explain:
+
+1. What aspect of the evidence is relevant.
+2. Which part of the requirement it supports.
+3. Whether the evidence covers the required scope.
+4. Whether additional interpretation is required.
+5. Whether limitations exist.
+6. Whether supplemental evidence is required.
+
+For example:
+
+> The vendor's approved incident response policy provides governance-level evidence supporting the requirement for documented incident management processes. The policy does not independently demonstrate operational effectiveness; testing or operational evidence may therefore be required.
+
+This is preferable to simply recording:
+
+```text
+Evidence EVD-001 → Requirement R-004
+```
+
+without explanation.
+
+---
+
+# 17. Evidence Reuse
+
+Evidence reuse is the controlled use of an existing Evidence Asset in a subsequent assessment.
+
+Reuse provides one of the primary efficiency benefits of ECF.
+
+Without reuse:
+
+```text
+Assessment A → Request Evidence
+Assessment B → Request Same Evidence
+Assessment C → Request Same Evidence
+```
+
+With governed reuse:
+
+```text
+                 Evidence Asset
+                      │
+          ┌───────────┼───────────┐
+          ↓           ↓           ↓
+     Assessment A Assessment B Assessment C
+```
+
+The evidence asset remains singular while its assessment relationships remain distinct.
+
+---
+
+# 18. Evidence Reuse Eligibility
+
+Evidence should not automatically become reusable simply because it exists in the Evidence Register.
+
+Reuse eligibility should consider:
+
+* Evidence identity
+* Evidence scope
+* Requirement scope
+* Applicability
+* Currency
+* Provenance
+* Validation status
+* Evidence quality
+* Version
+* Known limitations
+* Framework context
+* Assessment objective
+* Material changes
+* Regulatory or geographic context
+* Required corroboration
+
+A conceptual reuse decision is:
+
+```mermaid
+flowchart TD
+    A[Existing Evidence]
+    B{Applicable?}
+    C{Scope Aligned?}
+    D{Current and Valid?}
+    E{Sufficient for Intended Use?}
+    F[Reuse]
+    G[Reuse with Limitations]
+    H[Revalidate or Obtain Updated Evidence]
+    I[Collect Additional Evidence]
+    J[Do Not Reuse]
+
+    A --> B
+    B -- No --> J
+    B -- Yes --> C
+    C -- No --> I
+    C -- Yes --> D
+    D -- No --> H
+    D -- Yes --> E
+    E -- Yes --> F
+    E -- Conditional --> G
+    E -- No --> I
+```
+
+This makes reuse a governed decision rather than an assumption.
+
+---
+
+# 19. Evidence Convergence
+
+**Evidence Convergence** is the ability of one governed evidence asset to support evaluation across multiple applicable governance requirements.
+
+The architecture can be represented as:
+
+```text
+                       Evidence Asset
+                            │
+              ┌─────────────┼─────────────┐
+              ↓             ↓             ↓
+        Requirement A  Requirement B  Requirement C
+              │             │             │
+              ↓             ↓             ↓
+        Assessment A   Assessment B   Assessment C
+```
+
+Evidence convergence can reduce:
+
+* Duplicate evidence requests
+* Vendor response burden
+* Assessment cycle time
+* Repeated evidence validation
+* Administrative overhead
+
+However, convergence must not eliminate the distinct requirements or assessment contexts.
+
+---
+
+# 20. Evidence Convergence vs. Requirement Convergence
+
+These concepts must remain separate.
+
+### Evidence Convergence
+
+The same evidence asset can support multiple requirements where appropriate.
+
+### Requirement Convergence
+
+Different requirements are treated as equivalent or interchangeable.
+
+ECF supports **Evidence Convergence**.
+
+ECF does not assume **Requirement Convergence**.
+
+Therefore:
+
+```text
+One Evidence Asset
+        │
+        ├── Requirement A
+        │      └── Interpretation A
+        │
+        ├── Requirement B
+        │      └── Interpretation B
+        │
+        └── Requirement C
+               └── Interpretation C
+```
+
+The evidence can converge while the requirements and interpretations remain distinct.
+
+---
+
+# 21. Framework-Specific Gaps
+
+Framework-specific gaps must remain visible even when evidence is reused.
+
+For example, an evidence asset may provide useful support for:
+
+* A governance requirement under NIST AI RMF
+* A related requirement under ISO/IEC 42001
+* A related obligation or assessment criterion associated with the EU AI Act
+
+However, the evidence may not independently address every aspect required in each context.
+
+The ECF architecture therefore records:
+
+```text
+Evidence Reuse
+      ↓
+Framework-Specific Evaluation
+      ↓
+Additional Evidence / Interpretation
+      ↓
+Framework-Specific Gap where necessary
+```
+
+A framework-specific gap is not evidence architecture failure.
+
+It is an expected outcome when requirements legitimately differ.
+
+---
+
+# 22. Evidence Lineage
+
+Evidence lineage records the relationships between evidence and the governance activities that depend upon it.
+
+A lineage chain may be:
+
+```text
+Governance Requirement
+        ↓
+Evidence Requirement
+        ↓
+Evidence Asset
+        ↓
+Validation
+        ↓
+Mapping
+        ↓
+Assessment
+        ↓
+Finding / Gap
+        ↓
+Risk
+        ↓
+Decision
+```
+
+Lineage should support both forward and backward traceability.
+
+### Forward
+
+Requirement → Evidence → Assessment → Risk → Decision
+
+### Backward
+
+Decision → Risk → Finding → Assessment → Evidence → Requirement
+
+Lineage is important for:
+
+* Internal audit
+* External audit
+* Regulatory examination
+* Risk reviews
+* Management reporting
+* Vendor reassessment
+* Evidence change impact analysis
+
+---
+
+# 23. Evidence Change Management
+
+Evidence is not static.
+
+Changes may occur because:
+
+* Policies are revised.
+* Procedures change.
+* Systems are redesigned.
+* AI models change.
+* Vendors change operating environments.
+* New subprocessors are introduced.
+* Organizations merge or restructure.
+* Certifications change.
+* Control environments change.
+* Regulatory requirements change.
+
+Material changes should trigger evaluation of downstream dependencies.
+
+A conceptual model is:
+
+```mermaid
+flowchart TD
+    A[Evidence Change]
+    B[Change Assessment]
+    C{Material?}
+    D[Update Metadata]
+    E[Identify Dependent Assessments]
+    F[Review Mappings]
+    G[Revalidate Evidence]
+    H[Reassess Affected Requirements]
+    I[Update Findings and Risk]
+    J[Governance Review]
+
+    A --> B
+    B --> C
+    C -- No --> D
+    C -- Yes --> E
+    E --> F
+    F --> G
+    G --> H
+    H --> I
+    I --> J
+```
+
+This establishes an important property of ECF:
+
+> **Evidence reuse creates efficiency, but evidence dependencies create change-management obligations.**
+
+---
+
+# 24. Evidence Ownership
+
+Evidence ownership establishes accountability for maintaining an evidence asset.
+
+Ownership may be assigned to:
+
+* Vendor security teams
+* AI product owners
+* Control owners
+* Compliance teams
+* Information security teams
+* Legal teams
+* Risk teams
+* Procurement teams
+* TPRM teams
+
+The evidence owner is not necessarily the person who stores the evidence.
+
+A distinction may exist between:
+
+* **Evidence Owner** — accountable for the evidence and its validity.
+* **Evidence Custodian** — responsible for storage and administrative management.
+* **Assessor** — responsible for interpretation.
+* **Risk Owner** — responsible for risk decisions.
+
+This separation supports accountability without conflating operational roles.
+
+---
+
+# 25. Evidence Confidentiality
+
+Evidence may contain sensitive information.
+
+Examples include:
+
+* Security architecture
+* Vulnerability information
+* Customer information
+* Contract terms
+* Internal control details
+* Security test results
+* Proprietary AI documentation
+* Personal information
+
+Evidence governance should therefore include appropriate confidentiality classification and access controls.
+
+Possible classifications include:
 
 * Public
 * Internal
 * Confidential
 * Restricted
 
-Classification supports controlled retrieval and reuse.
+The exact classification scheme should align with the organization's existing information classification standard.
+
+Evidence reuse must not override confidentiality or contractual restrictions.
 
 ---
 
-# 10. Evidence Mapping
+# 26. Evidence Retention
 
-Evidence mapping establishes relationships between an evidence asset and one or more governance requirements.
+Evidence retention should align with:
 
-A mapping should contain enough information to explain why the relationship exists.
+* Organizational retention policies
+* Legal requirements
+* Regulatory obligations
+* Contractual requirements
+* Audit requirements
+* Litigation hold requirements
+* Risk management needs
 
-A useful mapping structure includes:
+Retirement from active use does not necessarily mean immediate deletion.
 
-| Mapping Attribute | Purpose                                                      |
-| ----------------- | ------------------------------------------------------------ |
-| Evidence ID       | Identifies the evidence asset                                |
-| Requirement ID    | Identifies the requirement                                   |
-| Mapping strength  | Indicates how directly the evidence supports the requirement |
-| Mapping rationale | Explains the relationship                                    |
-| Scope alignment   | Identifies relevant scope                                    |
-| Limitations       | Documents deficiencies or constraints                        |
-| Framework context | Identifies the assessment context                            |
-| Mapping owner     | Establishes accountability                                   |
-| Mapping status    | Indicates whether the mapping remains valid                  |
-| Last reviewed     | Supports ongoing governance                                  |
+Historical evidence may need to remain available to reconstruct past:
 
-### Mapping Strength
+* Assessments
+* Findings
+* Risks
+* Decisions
+* Audit trails
 
-A mapping strength model may use:
-
-* **Strong** — Evidence directly supports evaluation of the requirement within the relevant scope.
-* **Moderate** — Evidence provides meaningful support but requires additional interpretation or corroboration.
-* **Weak** — Evidence is relevant but insufficient to support the requirement independently.
-* **Not Applicable** — The evidence does not meaningfully support the requirement.
-
-The mapping strength does not represent a compliance score.
+Retention and deletion should therefore be governed independently from active evidence status.
 
 ---
 
-# 11. Assessment Use
+# 27. Evidence Quality
 
-Assessment interpretation occurs after evidence has been validated and appropriately mapped.
+Evidence quality represents the degree to which an evidence asset is suitable for its intended governance purpose.
 
-The assessor determines what the evidence means in the context of the requirement.
+Quality may depend on:
 
-This is a critical separation within ECF:
+* Authenticity
+* Reliability
+* Completeness
+* Accuracy
+* Relevance
+* Currency
+* Scope
+* Provenance
+* Independence
+* Consistency
 
-> **Evidence is an input to an assessment; evidence is not itself the assessment conclusion.**
+Evidence quality is contextual.
 
-The assessor may determine that the evidence:
+An evidence asset that is appropriate for one assessment may be insufficient for another.
 
-* Supports the requirement
-* Partially supports the requirement
-* Does not support the requirement
-* Is insufficient to reach a conclusion
-* Requires corroborating evidence
-* Requires framework-specific interpretation
+Therefore:
 
-The assessment conclusion should remain traceable to:
-
-**Requirement → Evidence Requirement → Evidence Asset → Validation → Mapping → Assessment Interpretation**
+> **Evidence quality should be evaluated in relation to the requirement and intended use rather than treated as a universal property.**
 
 ---
 
-# 12. Evidence Reuse
+# 28. Assessment Relationships
 
-Evidence reuse occurs when an existing evidence asset is considered for use in another assessment or requirement.
+Evidence assets may have relationships with multiple assessments.
 
-The reuse decision should evaluate whether the existing evidence remains appropriate.
+A conceptual model is:
 
-A simplified decision flow is:
-
-```mermaid
-flowchart TD
-    A[New Assessment Requirement]
-    B[Existing Evidence Asset Identified]
-    C{Evidence Applicable?}
-    D[Request New Evidence]
-    E{Scope and Context Aligned?}
-    F[Request Supplemental or New Evidence]
-    G{Current and Valid?}
-    H[Revalidate or Obtain Updated Evidence]
-    I{Sufficient for Intended Assessment?}
-    J[Use Existing Evidence]
-    K[Use Existing Evidence with Limitations]
-    L[Collect Additional Evidence]
-
-    A --> B
-    B --> C
-    C -- No --> D
-    C -- Yes --> E
-    E -- No --> F
-    E -- Yes --> G
-    G -- No --> H
-    G -- Yes --> I
-    I -- Yes --> J
-    I -- Conditional --> K
-    I -- No --> L
+```text
+Evidence Asset
+      │
+      ├──────── Assessment A
+      │             └── Requirement A
+      │
+      ├──────── Assessment B
+      │             └── Requirement B
+      │
+      └──────── Assessment C
+                    └── Requirement C
 ```
 
-Evidence reuse should therefore be treated as a governed decision, not an assumption.
+Each relationship should preserve:
+
+* Assessment context
+* Requirement
+* Mapping rationale
+* Evidence scope
+* Assessment interpretation
+* Limitations
+* Finding or conclusion
+
+This allows evidence to be reused without collapsing separate assessment records.
 
 ---
 
-# 13. Evidence Reuse Eligibility
+# 29. Cross-Framework Relationships
 
-An evidence asset may be eligible for reuse when:
+ECF is designed to support evidence relationships across governance frameworks.
 
-* The underlying requirement remains materially comparable.
-* The evidence scope includes the receiving assessment scope.
-* The evidence remains current.
-* The evidence source remains authoritative.
-* The underlying control or process has not materially changed.
-* The evidence has not been superseded.
-* The evidence remains valid for the relevant jurisdiction or operating context.
-* Known limitations do not invalidate the intended use.
-* Required framework-specific interpretation can still be performed.
-* Any required corroborating evidence is available.
+A conceptual example is:
 
-Reuse should not occur solely because two requirements appear to use similar language.
+```mermaid
+flowchart LR
+    E[Evidence Asset]
 
----
+    N[NIST AI RMF Requirement]
+    I[ISO/IEC 42001 Requirement]
+    U[EU AI Act Requirement or Obligation]
 
-# 14. Assessment-Specific Limitations
+    NA[NIST Interpretation]
+    IA[ISO Interpretation]
+    UA[EU AI Act Interpretation]
 
-An evidence asset may be reusable while still being insufficient to independently satisfy the receiving requirement.
+    E --> N
+    E --> I
+    E --> U
 
-For example:
+    N --> NA
+    I --> IA
+    U --> UA
+```
 
-> A vendor's enterprise-wide information security policy may be relevant to multiple assessments, but a framework-specific requirement may also require evidence about implementation, operational effectiveness, AI-specific governance, or a particular organizational scope.
+The same evidence may be relevant across these contexts.
 
-In such cases, ECF should record:
+However, each framework relationship requires independent interpretation.
 
-1. The reused evidence.
-2. The limitation.
-3. The additional evidence required.
-4. The assessment-specific interpretation.
-5. The resulting gap, if any.
-
-This preserves evidence convergence without creating false equivalence.
+The architecture therefore avoids creating a universal crosswalk in which evidence automatically becomes compliance with every mapped framework requirement.
 
 ---
 
-# 15. Gap Identification
+# 30. Evidence and Risk Relationships
 
-A gap is identified when the available evidence does not provide sufficient support for the applicable requirement.
+Evidence does not directly become risk.
 
-Common causes include:
-
-* No evidence exists.
-* Evidence is incomplete.
-* Evidence is outdated.
-* Evidence does not cover the required scope.
-* Evidence is not applicable.
-* Evidence has material limitations.
-* The requirement requires additional evidence.
-* The requirement is framework-specific.
-* The available evidence requires corroboration.
-* The underlying control does not operate as expected.
-
-The gap should reference the evidence that was evaluated where applicable.
-
-A gap should not simply state:
-
-> "Vendor failed requirement."
-
-Instead, the assessment should establish the traceable relationship between the requirement, evidence, interpretation, and conclusion.
-
----
-
-# 16. Supplemental Evidence Collection
-
-When an evidence asset is insufficient, ECF should first determine whether:
-
-* Existing evidence can be supplemented.
-* A more appropriate existing evidence asset is available.
-* Additional evidence can be requested.
-* A framework-specific interpretation can resolve the uncertainty.
-* The requirement genuinely remains unsupported.
-
-Supplemental evidence may include:
-
-* Technical evidence
-* Operational records
-* Independent assurance
-* Management attestation
-* Control testing
-* Contracts
-* Procedures
-* System configuration
-* Incident records
-* Risk assessments
-* AI-specific documentation
-
-Supplemental evidence should be linked to the original Evidence Requirement and assessment context.
-
----
-
-# 17. Risk Escalation
-
-Evidence gaps do not automatically equal material risk.
-
-The assessment must evaluate the significance of the gap within the applicable risk context.
-
-Risk evaluation may consider:
-
-* Impact
-* Likelihood
-* Exposure
-* Data sensitivity
-* AI system criticality
-* Regulatory relevance
-* Business criticality
-* Customer impact
-* Dependency concentration
-* Control maturity
-* Compensating controls
-* Duration of the gap
-* Existing remediation
-* Risk acceptance criteria
-
-The resulting risk should remain traceable to the assessment finding and underlying evidence.
-
-The relationship is:
+The relationship is mediated by assessment interpretation.
 
 ```text
 Evidence
@@ -675,637 +1018,206 @@ Finding / Gap
    ↓
 Risk Analysis
    ↓
-Risk Decision
+Risk
 ```
 
----
+This separation is important because:
 
-# 18. Remediation
+* Evidence may be valid but reveal a control weakness.
+* Evidence may be insufficient without proving that a control is absent.
+* Evidence may indicate a gap that has low business impact.
+* Evidence may identify a gap that creates significant regulatory or operational exposure.
 
-Where remediation is required, the remediation action should address the underlying issue rather than merely produce another document.
-
-Potential remediation actions include:
-
-* Implementing a missing control
-* Updating a policy
-* Expanding control scope
-* Improving monitoring
-* Correcting a process deficiency
-* Obtaining additional assurance
-* Restricting use of an AI service
-* Adding contractual requirements
-* Implementing compensating controls
-* Reassessing the vendor
-* Escalating the issue to governance
-
-Remediation evidence should itself enter the evidence lifecycle.
+Risk therefore requires contextual analysis.
 
 ---
 
-# 19. Governance Decision
+# 31. Evidence and Governance Decisions
 
-Evidence ultimately supports a governance decision.
+Governance decisions should remain traceable to the evidence and risk information supporting them.
 
-Depending on the context, decisions may include:
+A conceptual relationship is:
+
+```mermaid
+flowchart LR
+    A[Evidence]
+    B[Assessment]
+    C[Finding / Gap]
+    D[Risk]
+    E[Decision]
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+```
+
+Possible decisions may include:
 
 * Approve
 * Approve with conditions
-* Approve with remediation requirements
+* Require remediation
 * Accept risk
-* Transfer risk
 * Restrict use
 * Defer decision
+* Escalate
 * Reject
-* Require additional assessment
-* Escalate to a governance committee
 
-The decision should identify:
+ECF does not prescribe the organization's risk appetite or decision authority.
 
-* Decision owner
-* Decision date
-* Decision rationale
-* Relevant risk
-* Applicable findings
-* Required remediation
-* Conditions or exceptions
-* Review date
-
-ECF does not prescribe a universal decision methodology. Organizations should align decision authority with their existing governance model.
+It provides the evidence architecture necessary to support traceable decisions.
 
 ---
 
-# 20. Evidence Monitoring
-
-Evidence monitoring determines whether previously accepted evidence remains appropriate.
-
-Monitoring may be:
-
-* Time-based
-* Event-driven
-* Change-driven
-* Risk-based
-* Assessment-driven
-
-Potential monitoring triggers include:
-
-* Evidence nearing expiration
-* Material control changes
-* Vendor organizational changes
-* AI system changes
-* Changes to service architecture
-* Significant incidents
-* Regulatory changes
-* Contract changes
-* New assessment requirements
-* Changes in evidence ownership
-* Audit findings
-* Material exceptions
-
-Monitoring prevents evidence reuse from becoming uncontrolled evidence perpetuation.
-
----
-
-# 21. Revalidation
-
-Revalidation determines whether an existing evidence asset remains suitable for continued use.
-
-Revalidation may confirm:
-
-* Source remains authoritative.
-* Evidence remains current.
-* Scope remains appropriate.
-* Underlying controls remain materially unchanged.
-* Existing mappings remain valid.
-* Known limitations remain accurate.
-* Evidence remains relevant to downstream assessments.
-
-Revalidation does not necessarily require collecting an entirely new evidence asset.
-
-Depending on the circumstances, it may involve:
-
-* Confirming continued validity
-* Obtaining a current attestation
-* Reviewing change records
-* Updating metadata
-* Performing targeted testing
-* Obtaining a newer version
-* Re-performing assessment interpretation
-
----
-
-# 22. Evidence Change Management
-
-Changes to evidence should be treated as potentially consequential governance events.
-
-Examples include:
-
-* Policy revision
-* Control redesign
-* System migration
-* AI model change
-* Vendor acquisition
-* Organizational restructuring
-* New subprocessors
-* Material incident
-* Certification status change
-* Scope change
-* Contractual change
-* Regulatory change
-
-The evidence change should trigger an impact analysis.
-
-```mermaid
-flowchart LR
-    A[Evidence Change Detected]
-    B[Record Change]
-    C[Assess Materiality]
-    D{Material Change?}
-    E[Continue Existing Use]
-    F[Identify Downstream Dependencies]
-    G[Review Evidence Mappings]
-    H[Reassess Affected Requirements]
-    I[Identify New or Changed Gaps]
-    J[Update Risk]
-    K[Governance Decision]
-
-    A --> B
-    B --> C
-    C --> D
-    D -- No --> E
-    D -- Yes --> F
-    F --> G
-    G --> H
-    H --> I
-    I --> J
-    J --> K
-```
-
-This is an important architectural property of ECF:
-
-> **Evidence is reusable, but evidence-dependent decisions remain change-sensitive.**
-
----
-
-# 23. Evidence Expiration
-
-Evidence may have an explicit or implicit validity period.
-
-Expiration criteria may be based on:
-
-* Defined review date
-* Certification validity
-* Assessment cycle
-* Contract period
-* Policy version
-* Regulatory change
-* Material system change
-* Risk-based review frequency
-
-Expiration should not necessarily mean that the underlying evidence is false.
-
-It means that the organization no longer considers the evidence sufficiently current for the intended governance use without additional review or validation.
-
----
-
-# 24. Evidence Retirement
-
-Evidence should be retired when it is no longer appropriate for active governance use.
-
-Retirement may occur because:
-
-* It has been superseded.
-* The associated system or vendor relationship ended.
-* The evidence is obsolete.
-* The requirement no longer applies.
-* The evidence was replaced with a more authoritative version.
-* The evidence cannot be sufficiently validated.
-* The retention period has ended.
-
-Retired evidence should remain subject to applicable retention and legal requirements.
-
-Retirement should preserve appropriate lineage so that historical assessment decisions can still be reconstructed where required.
-
----
-
-# 25. Exception Handling
-
-Evidence flow exceptions should be explicitly recorded rather than silently bypassing normal controls.
-
-Examples include:
-
-* Evidence unavailable
-* Vendor refuses to provide evidence
-* Evidence cannot be independently validated
-* Evidence is restricted
-* Evidence is expired but temporarily required
-* Framework-specific evidence unavailable
-* Compensating evidence accepted
-* Risk accepted despite an evidence gap
-* Assessment deadline requires controlled exception handling
-
-An exception record should identify:
-
-* Exception ID
-* Related requirement
-* Related evidence
-* Reason
-* Business justification
-* Risk impact
-* Compensating controls
-* Approver
-* Expiration or review date
-* Required remediation
-
-Exceptions should have an owner and an explicit lifecycle.
-
----
-
-# 26. Roles and Responsibilities
-
-ECF does not require one universal organizational structure. Responsibilities should be assigned according to the organization's governance model.
-
-A typical operating model may include:
-
-| Role                   | Primary Responsibility                                       |
-| ---------------------- | ------------------------------------------------------------ |
-| Requirement Owner      | Defines the governance requirement and assessment intent     |
-| Evidence Owner         | Maintains the source evidence and confirms its applicability |
-| Evidence Custodian     | Registers, stores, classifies, and manages evidence          |
-| Assessor               | Interprets evidence against applicable requirements          |
-| TPRM / GRC Team        | Coordinates assessments, mappings, findings, and workflow    |
-| AI Governance Function | Provides AI-specific governance interpretation and oversight |
-| Risk Owner             | Evaluates and accepts or escalates resulting risk            |
-| Control Owner          | Owns remediation and control effectiveness                   |
-| Governance Committee   | Makes or ratifies decisions within delegated authority       |
-| Internal Audit         | Provides independent assurance where applicable              |
-
-One individual may perform multiple roles in smaller organizations, provided that appropriate independence and segregation requirements are maintained.
-
----
-
-# 27. Traceability
-
-Traceability is a core property of the Evidence Flow.
-
-A complete trace should allow an organization to move from a governance decision back through the evidence chain.
-
-The target relationship is:
-
-```text
-Governance Decision
-        ↓
-Risk
-        ↓
-Finding / Gap
-        ↓
-Assessment Interpretation
-        ↓
-Evidence Mapping
-        ↓
-Evidence Validation
-        ↓
-Evidence Asset
-        ↓
-Evidence Requirement
-        ↓
-Governance Requirement
-```
-
-Traceability should work in both directions.
-
-### Forward Traceability
-
-Requirement → Evidence → Assessment → Risk → Decision
-
-### Reverse Traceability
-
-Decision → Risk → Finding → Assessment → Evidence → Requirement
-
-This allows governance teams and auditors to answer questions such as:
-
-* Why was this decision made?
-* Which evidence supported the decision?
-* Was the evidence valid at the time?
-* Which requirements depended on this evidence?
-* What other assessments reused the evidence?
-* What happens if the evidence changes?
-* Which risks originated from an evidence gap?
-
----
-
-# 28. Cross-Framework Evidence Flow
-
-ECF supports multiple governance frameworks through evidence convergence.
-
-The flow is:
+# 32. GRC Integration
+
+ECF should integrate with existing governance, risk, and compliance capabilities where available.
+
+Potential systems include:
+
+* GRC platforms
+* TPRM platforms
+* Vendor management systems
+* Document repositories
+* Audit management platforms
+* Risk registers
+* AI governance platforms
+* Contract management systems
+* Compliance management platforms
+
+A conceptual integration model is:
 
 ```mermaid
 flowchart TD
-    A[Shared Governance Requirement or Evidence Need]
-    B[Evidence Asset]
-    C[Evidence Validation]
-    D[Evidence Repository]
-
-    E[NIST AI RMF Assessment]
-    F[ISO/IEC 42001 Assessment]
-    G[EU AI Act Assessment]
-    
-    H[NIST-Specific Interpretation]
-    I[ISO-Specific Interpretation]
-    J[EU AI Act-Specific Interpretation]
-
-    K[Framework-Specific Gap]
-    L[Risk and Governance Decision]
+    A[Governance Requirements]
+    B[Evidence Architecture]
+    C[Evidence Repository]
+    D[Assessment Management]
+    E[Findings]
+    F[Risk Management]
+    G[Governance Decisions]
 
     A --> B
     B --> C
     C --> D
-
     D --> E
-    D --> F
-    D --> G
+    E --> F
+    F --> G
 
-    E --> H
-    F --> I
-    G --> J
-
-    H --> K
-    I --> K
-    J --> K
-
-    K --> L
+    C <--> D
+    D <--> F
 ```
 
-The architecture deliberately allows the same evidence asset to enter multiple assessment flows.
+ECF does not require an organization to replace an existing GRC platform.
 
-However, each assessment retains its own:
-
-* Requirement
-* Framework context
-* Interpretation
-* Mapping rationale
-* Scope
-* Limitations
-* Finding
-* Risk implication
-
-This prevents evidence convergence from becoming requirement convergence.
+The architecture can instead operate as an evidence-centric layer within the broader governance ecosystem.
 
 ---
 
-# 29. Evidence Convergence vs. Requirement Convergence
+# 33. Minimum Viable Implementation
 
-These concepts must remain distinct.
+ECF can be implemented without sophisticated technology.
 
-### Evidence Convergence
+A minimum viable implementation requires:
 
-Multiple requirements may be supported, in whole or in part, by the same evidence asset.
-
-### Requirement Convergence
-
-Different requirements are treated as if they are equivalent or interchangeable.
-
-ECF supports the former and does not assume the latter.
-
-For example:
-
-```text
-                    Evidence Asset
-                         │
-             ┌───────────┼───────────┐
-             ↓           ↓           ↓
-        Requirement A Requirement B Requirement C
-             │           │           │
-             ↓           ↓           ↓
-        Interpretation Interpretation Interpretation
-             │           │           │
-             ↓           ↓           ↓
-          Finding     Finding       Finding
-```
-
-The evidence can converge while the assessment interpretations remain distinct.
-
----
-
-# 30. AI Vendor Governance Example
-
-The following example illustrates the flow without representing a real organization or vendor.
-
-### Scenario
-
-An organization is evaluating an AI vendor that provides an AI-enabled enterprise application.
-
-The organization needs to evaluate the vendor against multiple governance requirements.
-
-One requirement concerns the vendor's approach to managing security incidents.
-
-### Flow
-
-#### Step 1 — Requirement Identification
-
-The organization identifies an incident-management governance requirement.
-
-#### Step 2 — Evidence Requirement
-
-The Evidence Requirement specifies that evidence should demonstrate how incident management responsibilities, escalation, response, and governance are established for the relevant service.
-
-#### Step 3 — Evidence Request
-
-The vendor is asked to provide relevant incident-management documentation.
-
-#### Step 4 — Collection and Registration
-
-The vendor submits an incident response policy.
-
-The evidence is registered with:
-
-* Evidence ID
-* Vendor
-* Evidence owner
-* Scope
-* Version
-* Effective date
-* Source
-* Confidentiality
-* Review date
-
-#### Step 5 — Validation
-
-The assessor confirms that:
-
-* The document originates from the vendor.
-* The document is current.
-* The scope includes the relevant service.
-* The document is approved.
-* Limitations are understood.
-
-#### Step 6 — Mapping
-
-The evidence is mapped to applicable requirements where the relationship is defensible.
-
-#### Step 7 — Assessment Interpretation
-
-The assessor determines that the policy provides governance-level evidence but does not demonstrate operational effectiveness.
-
-#### Step 8 — Gap Identification
-
-A gap is recorded where operational evidence is required.
-
-#### Step 9 — Supplemental Evidence
-
-The organization requests additional evidence such as incident testing records, response metrics, or independent assurance, depending on the applicable requirement.
-
-#### Step 10 — Risk Evaluation
-
-The gap is evaluated in the context of the organization's exposure to the vendor.
-
-#### Step 11 — Governance Decision
-
-The organization may approve the vendor with remediation conditions, require additional controls, accept the risk, or escalate the decision.
-
-#### Step 12 — Monitoring
-
-If the vendor materially changes its incident-management process or service architecture, the evidence may require revalidation and affected assessments may need to be revisited.
-
-This example demonstrates that **one evidence asset can initiate multiple assessment activities without becoming a universal compliance artifact**.
-
----
-
-# 31. Evidence Flow Across Multiple Assessments
-
-An evidence asset may participate in multiple assessments over time.
-
-For example:
-
-```text
-Evidence Asset E-001
-       │
-       ├── Assessment A
-       │      └── Requirement A-01
-       │
-       ├── Assessment B
-       │      └── Requirement B-07
-       │
-       └── Assessment C
-              └── Requirement C-14
-```
-
-The evidence asset remains singular.
-
-The assessment relationships remain separate.
-
-If E-001 changes materially:
-
-```text
-Evidence Change
-      ↓
-Identify Dependencies
-      ↓
-Assessment A Review
-Assessment B Review
-Assessment C Review
-      ↓
-Revalidation / Reassessment
-      ↓
-Updated Findings and Risk
-```
-
-This dependency model is one of the primary operational benefits of an evidence-centric architecture.
-
----
-
-# 32. Minimum Viable Evidence Flow
-
-A small or resource-constrained organization does not need a sophisticated GRC platform to implement the core ECF flow.
-
-A minimum viable implementation can use:
-
-1. Evidence Requirement Catalog
-2. Evidence Register
-3. Evidence Mapping Matrix
-4. Assessment workbook
-5. Basic evidence repository
-6. Defined validation criteria
-7. Defined evidence status values
-8. Manual review and revalidation process
-9. Finding and risk register
+1. Governance Requirement Catalog
+2. Evidence Requirement Catalog
+3. Evidence Register
+4. Evidence Mapping Matrix
+5. Evidence repository
+6. Evidence validation process
+7. Assessment workbook
+8. Finding and gap register
+9. Risk register
 10. Governance decision record
 
-The minimum flow is:
+A spreadsheet-based implementation can demonstrate the core architecture if it maintains:
 
-```text
-Requirement
-    ↓
-Evidence Request
-    ↓
-Evidence Register
-    ↓
-Validation
-    ↓
-Mapping
-    ↓
-Assessment
-    ↓
-Gap
-    ↓
-Risk
-    ↓
-Decision
-    ↓
-Review / Revalidation
-```
+* Unique IDs
+* Clear relationships
+* Evidence metadata
+* Validation status
+* Mapping rationale
+* Reuse eligibility
+* Assessment traceability
+* Risk linkage
 
-The objective is not automation for its own sake.
+The objective is to establish the architecture first.
 
-The objective is to establish controlled evidence reuse and traceability.
+Automation can be introduced later.
 
 ---
 
-# 33. Mature / Enterprise Evidence Flow
+# 34. Enterprise Implementation
 
-A mature implementation may integrate ECF into existing GRC and enterprise systems.
+A mature enterprise implementation may add:
 
-Potential capabilities include:
-
-* Central evidence repository
-* Evidence identity management
-* Automated metadata extraction
-* Evidence version control
+* Centralized evidence repository
+* Automated evidence intake
+* Workflow orchestration
+* Role-based access control
+* Evidence versioning
+* Evidence expiration monitoring
 * Requirement libraries
 * Framework mappings
 * Automated reuse recommendations
-* Evidence expiration alerts
-* Change-triggered reassessment
-* Workflow automation
-* Role-based access control
-* Segregation of duties
-* Audit trails
-* Risk integration
+* Change-triggered reassessments
+* GRC integrations
 * Vendor lifecycle integration
-* Contract management integration
-* AI governance workflow integration
-* Dashboarding
-* Evidence dependency analysis
-* API-based integrations
-* Automated notification
-* Exception management
+* Contract integrations
+* Risk integrations
+* Reporting and dashboards
+* API integrations
+* Audit trails
+* Dependency analysis
+* Automated notifications
 
-A mature architecture may look like:
+Automation should improve evidence management without replacing human assessment judgment.
+
+---
+
+# 35. Architectural Controls
+
+The following controls help preserve the integrity of the ECF evidence architecture.
+
+| Architectural Control    | Objective                                                                    |
+| ------------------------ | ---------------------------------------------------------------------------- |
+| Unique Evidence Identity | Prevent ambiguity between evidence assets                                    |
+| Metadata Standards       | Establish consistent evidence context                                        |
+| Scope Definition         | Prevent inappropriate evidence reuse                                         |
+| Provenance Tracking      | Establish evidence origin                                                    |
+| Validation Status        | Distinguish usable evidence from unvalidated evidence                        |
+| Version Control          | Preserve evidence history                                                    |
+| Currency Controls        | Prevent indefinite reliance on stale evidence                                |
+| Mapping Rationale        | Explain evidence-to-requirement relationships                                |
+| Reuse Eligibility        | Prevent uncontrolled reuse                                                   |
+| Dependency Tracking      | Identify assessments relying on evidence                                     |
+| Change Management        | Assess impact of material evidence changes                                   |
+| Access Control           | Protect sensitive evidence                                                   |
+| Retention Controls       | Preserve required historical records                                         |
+| Audit Trail              | Establish accountability                                                     |
+| Role Separation          | Separate evidence ownership, assessment, risk, and decision responsibilities |
+| Traceability             | Link decisions back to underlying evidence                                   |
+
+---
+
+# 36. Traceability Model
+
+ECF should maintain traceability across the entire governance chain.
+
+The target relationship is:
 
 ```mermaid
 flowchart LR
-    A[Governance Requirements]
-    B[Evidence Requirement Catalog]
-    C[Evidence Intake]
-    D[Evidence Repository]
-    E[Evidence Validation]
-    F[Evidence Mapping]
-    G[Assessment Engine]
-    H[Finding and Gap Management]
-    I[Risk Management]
-    J[Governance Decisions]
-    K[Monitoring and Change Detection]
-    L[Reporting and Analytics]
+    A[Governance Requirement]
+    B[Evidence Requirement]
+    C[Evidence Asset]
+    D[Validation]
+    E[Mapping]
+    F[Assessment]
+    G[Finding / Gap]
+    H[Risk]
+    I[Decision]
 
     A --> B
     B --> C
@@ -1315,348 +1227,354 @@ flowchart LR
     F --> G
     G --> H
     H --> I
-    I --> J
-    D --> K
-    K --> E
-    G --> L
-    H --> L
-    I --> L
-    J --> L
 ```
 
-Technology can improve speed and consistency, but automation should not eliminate human judgment where assessment interpretation or governance accountability is required.
+This enables an organization to answer:
+
+* What requirement led to this evidence request?
+* Which evidence supported this assessment?
+* Was the evidence validated?
+* Why was the evidence mapped to the requirement?
+* What limitations existed?
+* Which finding resulted?
+* What risk was identified?
+* What decision was made?
+* Which other assessments depend on this evidence?
 
 ---
 
-# 34. Flow Metrics and KPIs
+# 37. Separation of Evidence, Interpretation, and Decision
 
-ECF metrics should measure both **efficiency** and **assurance quality**.
+One of the most important architectural controls in ECF is separation between evidence and the conclusions derived from it.
 
-Optimizing only for evidence reuse could create an incentive to over-reuse weak evidence.
-
-Useful metrics include:
-
-| Metric                         | Purpose                                                                                    |
-| ------------------------------ | ------------------------------------------------------------------------------------------ |
-| Evidence Reuse Rate            | Measures the proportion of assessment evidence requirements supported by existing evidence |
-| Evidence Validation Cycle Time | Measures time required to validate submitted evidence                                      |
-| Evidence Request Cycle Time    | Measures time from request to usable evidence                                              |
-| Evidence Mapping Coverage      | Measures the proportion of applicable requirements with documented evidence mappings       |
-| Evidence Freshness             | Measures the age or currency of active evidence                                            |
-| Evidence Gap Rate              | Measures requirements lacking sufficient evidence                                          |
-| Supplemental Evidence Rate     | Identifies how frequently reused evidence requires additional evidence                     |
-| Evidence Expiration Rate       | Identifies evidence reaching review or expiration thresholds                               |
-| Revalidation Completion Rate   | Measures timely completion of required revalidation                                        |
-| Downstream Impact Rate         | Measures how often evidence changes trigger affected assessment reviews                    |
-| Assessment Cycle Time          | Measures the time required to complete assessments                                         |
-| Traceability Coverage          | Measures the proportion of findings and decisions with complete evidence lineage           |
-
-Metrics should be interpreted together.
-
-For example, a high Evidence Reuse Rate combined with a high Evidence Gap Rate may indicate overly aggressive reuse rather than mature convergence.
-
----
-
-# 35. Architectural Controls
-
-The Evidence Flow should be supported by architectural controls that preserve evidence integrity and governance quality.
-
-### 35.1 Unique Evidence Identity
-
-Each governed evidence asset should have a persistent identifier.
-
-### 35.2 Version Control
-
-Material evidence changes should create distinguishable versions or otherwise preserve version history.
-
-### 35.3 Access Control
-
-Evidence access should be based on appropriate authorization and confidentiality requirements.
-
-### 35.4 Provenance
-
-Evidence origin and relevant collection information should be recorded.
-
-### 35.5 Validation Status
-
-Evidence should have a defined validation state.
-
-### 35.6 Scope Control
-
-Evidence scope should be explicit enough to prevent inappropriate reuse.
-
-### 35.7 Currency Control
-
-Evidence should have appropriate review or expiration mechanisms.
-
-### 35.8 Mapping Governance
-
-Evidence mappings should have documented rationale and ownership.
-
-### 35.9 Reuse Eligibility
-
-Evidence should not be reusable by default simply because it exists in the repository.
-
-### 35.10 Dependency Tracking
-
-Downstream assessments that depend on an evidence asset should be identifiable where practical.
-
-### 35.11 Change Impact Analysis
-
-Material evidence changes should trigger review of dependent mappings and assessments.
-
-### 35.12 Audit Trail
-
-Material changes to evidence metadata, mappings, validation status, findings, and decisions should be attributable.
-
-### 35.13 Separation of Concerns
-
-The architecture should preserve separation between:
-
-* Evidence
-* Validation
-* Interpretation
-* Finding
-* Risk
-* Decision
-
-This prevents the evidence repository from becoming a de facto compliance determination engine.
-
----
-
-# 36. Evidence Flow Control Points
-
-The lifecycle contains several important control points.
-
-| Control Point          | Primary Question                                                   |
-| ---------------------- | ------------------------------------------------------------------ |
-| Requirement Definition | What must be evaluated?                                            |
-| Evidence Requirement   | What evidence is needed?                                           |
-| Intake                 | Has the requested evidence been received and identified correctly? |
-| Registration           | Can the evidence be governed as an identifiable asset?             |
-| Validation             | Is the evidence suitable for intended use?                         |
-| Classification         | How should the evidence be governed?                               |
-| Mapping                | Which requirements does the evidence support, and why?             |
-| Assessment             | What does the evidence mean in this assessment context?            |
-| Reuse Decision         | Can the evidence legitimately be reused?                           |
-| Gap Review             | What remains unsupported?                                          |
-| Risk Review            | What is the significance of the gap?                               |
-| Decision               | What governance action is appropriate?                             |
-| Monitoring             | Has anything changed?                                              |
-| Revalidation           | Does the evidence remain suitable?                                 |
-| Retirement             | Should the evidence remain active?                                 |
-
-These control points provide natural locations for workflow controls, approval gates, automation, and audit evidence.
-
----
-
-# 37. Evidence Flow and GRC Integration
-
-ECF can operate as an evidence-centric layer within an existing GRC ecosystem.
-
-A conceptual integration model is:
-
-```text
-                Governance Requirements
-                         │
-                         ▼
-              Evidence Requirement Catalog
-                         │
-                         ▼
-                  Evidence Register
-                         │
-          ┌──────────────┼──────────────┐
-          ▼              ▼              ▼
-      Assessments     Mappings       Vendors
-          │              │              │
-          └──────────────┼──────────────┘
-                         ▼
-                   Findings / Gaps
-                         │
-                         ▼
-                    Risk Register
-                         │
-                         ▼
-                Governance Decisions
-```
-
-The ECF model does not require organizations to replace existing GRC platforms.
-
-Instead, the evidence architecture can complement capabilities already present in:
-
-* GRC platforms
-* TPRM platforms
-* Document management systems
-* Audit management systems
-* Compliance platforms
-* AI governance platforms
-* Enterprise risk systems
-
-The implementation should preserve existing system-of-record responsibilities where appropriate.
-
----
-
-# 38. Separation of Evidence, Interpretation, and Decision
-
-A central architectural safeguard is maintaining separation between the evidence asset and the conclusions derived from it.
-
-The same evidence may produce different assessment conclusions because:
-
-* Requirements differ.
-* Scopes differ.
-* Framework contexts differ.
-* Assessment objectives differ.
-* Additional evidence may be available.
-* Risk tolerance differs.
-* Applicable laws or contractual obligations differ.
-
-Therefore:
+The model is:
 
 ```text
 Evidence
    ≠
-Compliance Conclusion
+Assessment Interpretation
    ≠
-Risk Rating
+Finding
+   ≠
+Risk
    ≠
 Governance Decision
 ```
 
-The relationships between these elements should be explicit and traceable.
+These relationships should be explicit.
+
+### Evidence
+
+What was provided or observed?
+
+### Validation
+
+Can the evidence reasonably be relied upon for its intended use?
+
+### Mapping
+
+Which requirement does the evidence support, and why?
+
+### Assessment Interpretation
+
+What does the evidence mean in the context of the requirement?
+
+### Finding
+
+What conclusion or deficiency resulted from the assessment?
+
+### Risk
+
+What is the significance of the finding?
+
+### Decision
+
+What action should the organization take?
+
+This separation prevents the evidence repository from becoming a simplistic compliance engine.
 
 ---
 
-# 39. Operating Characteristics of the ECF Evidence Flow
+# 38. Evidence Architecture Operating Model
 
-A mature ECF implementation should demonstrate the following characteristics.
+The evidence architecture can be summarized as:
 
-### Evidence is reusable
+```mermaid
+flowchart TD
+    A[Governance Requirements]
+    B[Evidence Requirements]
+    C[Evidence Assets]
+    D[Evidence Governance]
+    E[Evidence Mapping]
+    F[Assessment]
+    G[Findings and Gaps]
+    H[Risk]
+    I[Governance Decision]
 
-An evidence asset can support multiple applicable assessments.
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+    F --> G
+    G --> H
+    H --> I
 
-### Evidence is not infinitely reusable
+    D --> E
+    D --> C
+    E --> F
+    F --> C
+```
 
-Reuse depends on evidence characteristics and receiving assessment requirements.
-
-### Evidence is traceable
-
-Users can determine where evidence came from, how it was validated, where it was mapped, and which decisions depend upon it.
-
-### Evidence is change-sensitive
-
-Material changes can trigger downstream review.
-
-### Evidence is time-sensitive
-
-Evidence can expire or require revalidation.
-
-### Evidence is contextual
-
-Evidence scope and applicability matter.
-
-### Evidence is interpreted
-
-Assessment conclusions require interpretation rather than simple document matching.
-
-### Evidence gaps remain visible
-
-ECF does not hide framework-specific evidence requirements.
-
-### Evidence supports decisions
-
-The ultimate purpose of the flow is improved governance decision-making, not merely evidence collection.
+The architecture creates a controlled relationship between reusable evidence and assessment-specific interpretation.
 
 ---
 
-# 40. Relationship to the Evidence Architecture
+# 39. Conceptual Model vs. Implementation
 
-The Evidence Flow operationalizes the structures defined in `Evidence-Architecture.md`.
+The ECF evidence architecture is conceptual.
 
-The relationship can be summarized as:
+The eventual repository implementation will demonstrate the architecture using practical artifacts such as:
 
-| Evidence Architecture      | Evidence Flow                        |
-| -------------------------- | ------------------------------------ |
-| Governance Requirement     | Requirement Identification           |
-| Evidence Requirement       | Evidence Requirement Definition      |
-| Evidence Asset             | Collection and Registration          |
-| Evidence Metadata          | Registration and Classification      |
-| Evidence Scope             | Validation and Reuse Decision        |
-| Evidence Provenance        | Intake and Validation                |
-| Evidence Currency          | Validation, Monitoring, Revalidation |
-| Evidence Validation        | Validation Stage                     |
-| Evidence Mapping           | Mapping Stage                        |
-| Mapping Strength           | Reuse and Assessment Evaluation      |
-| Evidence Reuse             | Reuse Stage                          |
-| Evidence Convergence       | Cross-Framework Flow                 |
-| Framework-Specific Gaps    | Gap Identification                   |
-| Evidence Lineage           | Traceability                         |
-| Evidence Change Management | Change Management                    |
-| Evidence Ownership         | Roles and Responsibilities           |
-| Evidence Quality           | Validation and Monitoring            |
-| Assessment Relationships   | Assessment Use                       |
-| Risk Relationships         | Risk Escalation                      |
-| Governance Decision        | Decision Stage                       |
+* Evidence Requirement Catalog
+* Evidence Register
+* Evidence Mapping Matrix
+* Vendor Inventory
+* Vendor Assessment Workbook
+* Crosswalk documentation
+* Risk Register
+* Assessment Report
+* Synthetic evidence
+* Illustrative assessment records
 
-The Evidence Architecture therefore defines the **structure and governance model**, while the Evidence Flow defines the **movement and operational lifecycle**.
+These artifacts are a **reference implementation**, not a mandatory technology or data model.
+
+The repository should therefore distinguish between:
+
+### Conceptual ECF Model
+
+The architecture, principles, relationships, and operating model.
+
+### Reference Implementation
+
+A practical demonstration of how those concepts can be implemented.
+
+### Synthetic Data
+
+Illustrative data used to demonstrate the implementation.
+
+The implementation should not be interpreted as an authoritative organizational governance standard.
 
 ---
 
-# 41. Summary
+# 40. Design Implications for AI Vendor Governance
 
-The ECF Evidence Flow establishes a controlled lifecycle for governance evidence:
+AI vendor governance creates particular evidence challenges because evidence may span:
+
+* Organizational governance
+* AI system governance
+* Security
+* Privacy
+* Model management
+* Data governance
+* Risk management
+* Human oversight
+* Monitoring
+* Incident management
+* Third-party dependencies
+* Regulatory obligations
+
+The ECF evidence architecture is designed to prevent these domains from becoming disconnected evidence silos.
+
+For example:
 
 ```text
-Requirement
-    ↓
-Evidence Requirement
-    ↓
-Request
-    ↓
-Collection
-    ↓
-Intake
-    ↓
-Registration
-    ↓
-Validation
-    ↓
-Classification
-    ↓
-Mapping
-    ↓
-Assessment Interpretation
-    ↓
-Finding / Gap
-    ↓
-Risk
-    ↓
-Remediation
-    ↓
-Governance Decision
-    ↓
-Monitoring
-    ↓
-Revalidation
-    ↓
-Change / Expiration / Retirement
+AI Vendor
+   │
+   ├── Security Evidence
+   ├── Privacy Evidence
+   ├── AI Governance Evidence
+   ├── Risk Evidence
+   ├── Assurance Evidence
+   ├── Contractual Evidence
+   └── Operational Evidence
+             │
+             ▼
+       Evidence Register
+             │
+             ▼
+       Evidence Mapping
+             │
+      ┌──────┼──────┐
+      ↓      ↓      ↓
+    NIST    ISO    EU AI Act
+      │      │      │
+      └──────┼──────┘
+             ↓
+      Assessment Interpretation
+             ↓
+          Risk / Gap
+             ↓
+      Governance Decision
 ```
 
-The flow reinforces several fundamental ECF principles:
+This enables convergence at the evidence layer while retaining distinction at the requirement and assessment layers.
 
-1. Evidence collection is not assessment.
-2. Evidence validation is not compliance determination.
-3. Evidence mapping is not compliance equivalence.
-4. Evidence reuse is conditional.
-5. Evidence convergence does not eliminate framework-specific requirements.
-6. Evidence can support multiple assessments throughout its lifecycle.
-7. Material evidence changes can trigger downstream assessment review.
-8. Evidence gaps remain explicit.
-9. Evidence lineage supports auditability and governance.
-10. Evidence ultimately supports risk and governance decisions.
+---
 
-The operating objective is not to eliminate assessment work.
+# 41. What ECF Does Not Claim
 
-It is to eliminate unnecessary duplication while preserving the integrity of each assessment.
+The Evidence Architecture deliberately does not claim that:
+
+* One evidence asset automatically satisfies multiple requirements.
+* Similar requirements are equivalent.
+* A framework crosswalk establishes regulatory compliance.
+* Evidence reuse eliminates assessment judgment.
+* Evidence validation establishes compliance.
+* Evidence mapping establishes conformity.
+* A centralized evidence repository eliminates governance risk.
+* Automation can replace accountable decision-makers.
+* Every evidence asset should be reused.
+* Every framework requirement can be supported through shared evidence.
+* A vendor's certification automatically demonstrates compliance with every customer requirement.
+
+These limitations are essential to maintaining the credibility of the ECF model.
+
+---
+
+# 42. Architectural Benefits
+
+When implemented effectively, the Evidence Architecture can provide:
+
+### Reduced Duplication
+
+Evidence can be reused instead of repeatedly requested and validated.
+
+### Improved Traceability
+
+Requirements, evidence, assessments, risks, and decisions can be linked.
+
+### Better Evidence Governance
+
+Evidence has defined ownership, scope, provenance, currency, and lifecycle.
+
+### Improved Assessment Efficiency
+
+Assessors can identify potentially reusable evidence before initiating new requests.
+
+### Reduced Vendor Burden
+
+Vendors may avoid repeatedly supplying materially identical evidence.
+
+### Better Gap Visibility
+
+Framework-specific evidence requirements remain visible.
+
+### Improved Change Management
+
+Material evidence changes can be traced to dependent assessments.
+
+### Stronger Auditability
+
+Evidence lineage supports reconstruction of assessment and decision history.
+
+### Better Governance Decisions
+
+Decision-makers receive a clearer relationship between evidence, findings, risk, and action.
+
+---
+
+# 43. Architectural Limitations
+
+ECF does not eliminate the inherent limitations of governance evidence.
+
+Evidence may still be:
+
+* Incomplete
+* Inaccurate
+* Outdated
+* Misinterpreted
+* Mis-scoped
+* Biased
+* Self-attested
+* Difficult to independently verify
+
+Evidence convergence therefore does not eliminate assurance risk.
+
+The architecture reduces unnecessary duplication while preserving the need for:
+
+* Professional judgment
+* Independent assurance where appropriate
+* Supplemental evidence
+* Control testing
+* Risk analysis
+* Framework-specific interpretation
+* Governance oversight
+
+---
+
+# 44. Relationship to Evidence Flow
+
+The Evidence Architecture defines the **structure and governance of evidence**.
+
+The Evidence Flow defines **how evidence moves through that architecture**.
+
+The distinction is:
+
+| Artifact                   | Primary Question                                          |
+| -------------------------- | --------------------------------------------------------- |
+| `ECF-Components.md`        | What are the major ECF components?                        |
+| `Evidence-Architecture.md` | How is evidence structured, governed, mapped, and reused? |
+| `Evidence-Flow.md`         | How does evidence move through the governance lifecycle?  |
+
+The three artifacts therefore form a progressive architectural layer:
+
+```text
+ECF Components
+      ↓
+Evidence Architecture
+      ↓
+Evidence Flow
+      ↓
+Implementation / Operational Artifacts
+```
+
+The Evidence Architecture should be treated as the reference model against which subsequent implementation artifacts are evaluated.
+
+---
+
+# 45. Summary
+
+The ECF Evidence Architecture establishes an evidence-centric governance model in which:
+
+1. Governance requirements define what must be evaluated.
+2. Evidence requirements define what evidence is needed.
+3. Evidence assets are collected and governed as identifiable enterprise assets.
+4. Evidence metadata provides the context required for governance.
+5. Evidence scope determines where evidence can appropriately be used.
+6. Provenance establishes evidence origin and accountability.
+7. Currency prevents indefinite reliance on stale evidence.
+8. Validation establishes whether evidence is suitable for intended use.
+9. Mapping establishes explicit evidence-to-requirement relationships.
+10. Mapping strength communicates the nature of evidentiary support.
+11. Mapping rationale explains why a relationship exists.
+12. Evidence reuse reduces unnecessary duplication.
+13. Reuse eligibility prevents uncontrolled reuse.
+14. Evidence convergence allows one evidence asset to support multiple applicable requirements.
+15. Evidence convergence does not imply requirement convergence.
+16. Framework-specific gaps remain visible.
+17. Evidence lineage preserves traceability.
+18. Evidence changes can trigger downstream review.
+19. Ownership establishes accountability.
+20. Confidentiality and retention protect evidence throughout its lifecycle.
+21. Evidence quality is evaluated in relation to intended use.
+22. Assessment relationships remain distinct even when evidence is reused.
+23. Risk is derived through assessment interpretation rather than directly from evidence.
+24. Governance decisions remain accountable and traceable.
+25. The architecture can integrate with existing GRC capabilities.
+26. The architecture can be implemented incrementally, from spreadsheets to enterprise platforms.
+27. The conceptual ECF model remains distinct from the synthetic reference implementation.
+
+The central architectural principle is:
 
 > **Design governance evidence once, govern it as an enterprise asset, map it across applicable requirements, reuse it where appropriate, and explicitly identify what still requires additional evidence or framework-specific evaluation.**
-
